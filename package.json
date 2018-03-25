@@ -1,7 +1,7 @@
 {
   "name": "mixme",
   "description": "A library for recursive merging of Javascript objects",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "David Worms <david@adaltas.com>",
   "contributors": [
     {
@@ -18,9 +18,16 @@
     "node": ">= 4.0.0"
   },
   "homepage": "https://github.com/adaltas/node-mixme",
-  "bugs": { "url": "https://github.com/adaltas/node-mixme/issues" },
+  "bugs": {
+    "url": "https://github.com/adaltas/node-mixme/issues"
+  },
   "keywords": [
-    "merge", "deep", "extend", "copy", "clone", "recursive"
+    "merge",
+    "deep",
+    "extend",
+    "copy",
+    "clone",
+    "recursive"
   ],
   "license": "MIT",
   "main": "./lib",
