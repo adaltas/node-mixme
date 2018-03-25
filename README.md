@@ -15,7 +15,8 @@ The default function exported is immutable. Simply pass an empty object
 and get the return result to achieve immutability.
 
 ```javascript
-mixme({a: '1'}, {b: '2'}); // {a: '1', b: '2'}
+mixme({a: '1'}, {b: '2'});
+// return {a: '1', b: '2'}
 ```
 
 If you wish to enrich an object, pass it as first argument to the `mutate` 
@@ -23,7 +24,8 @@ function:
 
 ```javascript
 obj = {a: '1'};
-mixme.mutate(obj, {b: '2'}); // {a: '1', b: '2'}
+mixme.mutate(obj, {b: '2'});
+// obj is now {a: '1', b: '2'}
 ```
 
 ## Exemple
