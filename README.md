@@ -58,3 +58,9 @@ git clone http://github.com/wdavidw/node-mixme.git .
 npm install
 make test
 ```
+
+## Contributors
+
+*   David Worms: <https://github.com/wdavidw>
+
+This package is developed by [Adaltas](http://www.adaltas.com).
