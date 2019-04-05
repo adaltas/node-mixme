@@ -1,6 +1,11 @@
 
 # Changelog
 
+## Trunk
+
+* merge: fix array and object merge
+* is_object_literal: new function
+
 ## Version 0.1.0
 
 * clone: new function
