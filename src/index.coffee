@@ -23,6 +23,22 @@ module.exports.mutate = mutate = ->
       target = source
   target
 
+module.exports.underscore = (source, underscore=true) ->
+  target = {}
+  if is_object_literal source
+    u = if typeof underscore is 'number' and underscore > 0 then underscore - 1 else underscore
+    for name of source
+      src = source[name]
+      name = _underscore(name) if underscore
+      target[name] = module.exports.underscore src, u
+  else
+    target = source
+  target
+
+_underscore = (str) ->
+  str.replace /([A-Z])/g, (_, match, index) ->
+    '_' + match.toLowerCase()
+
 module.exports.is_object = is_object = (obj) ->
   obj and typeof obj is 'object' and not Array.isArray obj
 

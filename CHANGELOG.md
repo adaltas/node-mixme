@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* underscore: clone object with converted properties
 * merge: fix array and object merge
 * is_object_literal: new function
 
