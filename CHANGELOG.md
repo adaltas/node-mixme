@@ -1,7 +1,7 @@
 
 # Changelog
 
-## Trunk
+## Version 0.2.0
 
 * snake_case: clone object with converted properties
 * merge: fix array and object merge

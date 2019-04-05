@@ -1,7 +1,7 @@
 {
   "name": "mixme",
   "description": "A library for recursive merging of Javascript objects",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "David Worms <david@adaltas.com>",
   "contributors": [
     {
