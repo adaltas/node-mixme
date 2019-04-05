@@ -2,6 +2,15 @@
 module.exports = ->
   module.exports.mutate {}, arguments...
 
+module.exports.clone = (target) ->
+  if Array.isArray target
+    target.map (element) ->
+      module.exports.clone element
+  else if target and typeof target is 'object'
+    module.exports.mutate {}, target
+  else
+    target
+
 module.exports.mutate = ->
   target = arguments[0]
   target ?= {}

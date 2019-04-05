@@ -8,24 +8,28 @@ previous ones. Only objects are merged. Arrays are overwritten.
 
 ## API
 
-The API is minimalist, pass as many arguments as you wish, they will all be
+The API is minimalist, pass as many literal objects as you wish, they will all be
 merged.
 
-The default function exported is immutable. Simply pass an empty object 
-and get the return result to achieve immutability.
-
-```javascript
+```js
 mixme({a: '1'}, {b: '2'});
 // return {a: '1', b: '2'}
 ```
 
-If you wish to enrich an object, pass it as first argument to the `mutate` 
-function:
+The default function exported is immutable. The source objects won't be altered. Use the `mutate` function to enrich an object. The first argument will be enriched:
 
-```javascript
+```js
 obj = {a: '1'};
 mixme.mutate(obj, {b: '2'});
 // obj is now {a: '1', b: '2'}
+```
+
+It is possible to clone a literal object by simply calling `mixme` with this object as the first argument. Use the `clone` function in case you wish to clone any type of argument such as an array:
+
+```js
+source = ['a', 'b']
+target = mixme.clone(source)
+// target is now a copy of source
 ```
 
 ## Exemple

@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* clone: new function
 * readme: add author company
 
 ## Trunk
