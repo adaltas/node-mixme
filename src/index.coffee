@@ -1,6 +1,6 @@
 
 
-module.exports = merge = ->
+module.exports = module.exports.merge = merge = ->
   mutate {}, arguments...
 
 module.exports.clone = clone = (target, source={}) ->
@@ -23,19 +23,19 @@ module.exports.mutate = mutate = ->
       target = source
   target
 
-module.exports.underscore = (source, underscore=true) ->
+module.exports.snake_case = (source, snake_case=true) ->
   target = {}
   if is_object_literal source
-    u = if typeof underscore is 'number' and underscore > 0 then underscore - 1 else underscore
+    u = if typeof snake_case is 'number' and snake_case > 0 then snake_case - 1 else snake_case
     for name of source
       src = source[name]
-      name = _underscore(name) if underscore
-      target[name] = module.exports.underscore src, u
+      name = _snake_case(name) if snake_case
+      target[name] = module.exports.snake_case src, u
   else
     target = source
   target
 
-_underscore = (str) ->
+_snake_case = (str) ->
   str.replace /([A-Z])/g, (_, match, index) ->
     '_' + match.toLowerCase()
 

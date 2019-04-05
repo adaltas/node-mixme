@@ -8,38 +8,66 @@ previous ones. Only objects are merged. Arrays are overwritten.
 
 ## API
 
+### Function `merge(...data)`
+
 The API is minimalist, pass as many literal objects as you wish, they will all be
-merged.
+merged. This function is immutable, the source objects won't be altered.
 
 ```js
-mixme({a: '1'}, {b: '2'});
-// return {a: '1', b: '2'}
+target = mixme.merge({a: '1'}, {b: '2'});
+// target is {a: '1', b: '2'}
 ```
 
-The default function exported is immutable. The source objects won't be altered. Use the `mutate` function to enrich an object. The first argument will be enriched:
+### Function `mutate(...data)`
+
+Use the `mutate` function to enrich an object. The first argument will be mutated:
 
 ```js
 obj = {a: '1'};
-mixme.mutate(obj, {b: '2'});
-// obj is now {a: '1', b: '2'}
+target = mixme.mutate(obj, {b: '2'});
+// target is the same as source
+// source is now {a: '1', b: '2'}
 ```
 
-It is possible to clone a literal object by simply calling `mixme` with this object as the first argument. Use the `clone` function in case you wish to clone any type of argument such as an array:
+### Function `clone(data)`
+
+It is possible to clone a literal object by simply calling `mixme` with this object as the first argument. Use the `clone` function in case you wish to clone any type of argument including arrays:
 
 ```js
-source = ['a', 'b']
-target = mixme.clone(source)
+target = mixme.clone(['a', 'b'])
 // target is now a copy of source
 ```
 
-## Exemple
+### Function `is_object_literal(object)`
+
+Use the `is_object_literal` function to ensure an object is literate.
+
+```js
+// {} is literate
+mixme.is_object_literal({})
+// error is not literate
+mixme.is_object_literal(new Error(''))
+// Array is not literate
+mixme.is_object_literal([])
+```
+
+### Function `snake_case(object)`
+
+Clone a object and convert its properties into snake case.
+
+```js
+target = mixme.clone({aA: '1', bB: cC: '2'})
+// target is now {a_a: '1', b_b: c_c: '2'}
+```
+
+## Example
 
 Merge an existing object with a second one:
 
 ```
 obj1 = { a_key: 'a value', b_key: 'b value'};
 obj2 = { b_key: 'new b value'};
-result = misc.merge obj1, obj2
+result = misc.mutate obj1, obj2
 assert.eql result, obj1
 assert.eql obj1.b_key, 'new b value'
 ```
@@ -49,7 +77,7 @@ Create a new object from two objects:
 ```
 obj1 = { a_key: 'a value', b_key: 'b value'}
 obj2 = { b_key: 'new b value'}
-result = misc.merge {}, obj1, obj2
+result = misc.merge obj1, obj2
 assert.eql result.b_key, 'new b value'
 ```
 
