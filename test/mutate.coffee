@@ -1,6 +1,6 @@
 
 should = require 'should'
-{mutate} = require '../src'
+import {mutate} from '../src'
 
 describe 'mutate', ->
   

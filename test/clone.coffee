@@ -1,6 +1,6 @@
 
-should = require 'should'
-{clone} = require '../src'
+require 'should'
+import {clone} from '../src'
 
 describe 'clone', ->
 
@@ -24,6 +24,3 @@ describe 'clone', ->
     clone(true).should.eql true
     clone(1).should.eql 1
     clone('a').should.eql 'a'
-
-  describe 'underscore', ->
-    

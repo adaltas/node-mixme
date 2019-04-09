@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* project: csj, esm and umd generation
 * project: ignore lock files
 
 ## Version 0.2.0
