@@ -1,7 +1,7 @@
 
 # Changelog
 
-## Trunk
+## Version 0.3.0
 
 * project: csj, esm and umd generation
 * project: ignore lock files
