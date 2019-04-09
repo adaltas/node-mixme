@@ -81,3 +81,23 @@ describe 'mutate', ->
       obj2 = {a: '1', b: '2'}
       res = mutate obj1, obj2
       res.should.eql {a: '1', b: '2'}
+    
+  describe 'array', ->
+    
+    it 'reference array in first argument', ->
+      obj1 = a: [1,2], b: [3,4]
+      obj2 = b: [5,6]
+      res = mutate obj1, obj2
+      res.should.eql a: [1,2], b: [5,6]
+      obj1.a.shift()
+      res.should.eql a: [2], b: [5,6]
+        
+    it 'copy array in following argument', ->
+      obj1 = a: [1,2], b: [3,4]
+      obj2 = b: [5,6]
+      obj3 = c: [7,8]
+      res = mutate obj1, obj2, obj3
+      res.should.eql a: [1,2], b: [5,6], c: [7,8]
+      obj2.b.shift()
+      obj3.c.shift()
+      res.should.eql a: [1,2], b: [5,6], c: [7,8]

@@ -47,6 +47,10 @@ exports.mutate = function mutate() {
         target[name] = exports.mutate(target[name], source[name]);
       }
     } else if (source !== void 0) {
+      if (Array.isArray(source)) {
+        source = source.slice(0);
+      }
+
       target = source;
     }
   }

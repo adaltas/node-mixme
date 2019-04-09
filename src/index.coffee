@@ -20,6 +20,7 @@ mutate = ->
       for name of source
         target[name] = mutate target[name], source[name]
     else unless source is undefined
+      source = source.slice(0) if Array.isArray source
       target = source
   target
 
