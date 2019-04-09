@@ -1,6 +1,10 @@
 
 # Changelog
 
+## Trunk
+
+* project: ignore lock files
+
 ## Version 0.2.0
 
 * snake_case: clone object with converted properties
