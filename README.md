@@ -14,7 +14,8 @@ The API is minimalist, pass as many literal objects as you wish, they will all b
 merged. This function is immutable, the source objects won't be altered.
 
 ```js
-target = mixme.merge({a: '1'}, {b: '2'});
+const {merge} = require('mixme')
+const target = merge({a: '1'}, {b: '2'});
 // target is {a: '1', b: '2'}
 ```
 
@@ -23,10 +24,11 @@ target = mixme.merge({a: '1'}, {b: '2'});
 Use the `mutate` function to enrich an object. The first argument will be mutated:
 
 ```js
-obj = {a: '1'};
-target = mixme.mutate(obj, {b: '2'});
+const {mutate} = require('mixme')
+const source = {a: '1'};
+const target = mutate(source, {b: '2'});
 // target is the same as source
-// source is now {a: '1', b: '2'}
+// source and target are now {a: '1', b: '2'}
 ```
 
 ### Function `clone(data)`
@@ -34,7 +36,8 @@ target = mixme.mutate(obj, {b: '2'});
 It is possible to clone a literal object by simply calling `mixme` with this object as the first argument. Use the `clone` function in case you wish to clone any type of argument including arrays:
 
 ```js
-target = mixme.clone(['a', 'b'])
+const clone = require('clone')
+const target = mixme.clone(['a', 'b'])
 // target is now a copy of source
 ```
 
@@ -43,12 +46,13 @@ target = mixme.clone(['a', 'b'])
 Use the `is_object_literal` function to ensure an object is literate.
 
 ```js
+const is_object_literal = require('mixme')
 // {} is literate
-mixme.is_object_literal({})
+is_object_literal({})
 // error is not literate
-mixme.is_object_literal(new Error(''))
+is_object_literal(new Error('Catch me'))
 // Array is not literate
-mixme.is_object_literal([])
+is_object_literal([])
 ```
 
 ### Function `snake_case(object)`
@@ -56,7 +60,8 @@ mixme.is_object_literal([])
 Clone a object and convert its properties into snake case.
 
 ```js
-target = mixme.clone({aA: '1', bB: cC: '2'})
+const snake_case = require('mixme')
+const target = snake_case({aA: '1', bB: cC: '2'})
 // target is now {a_a: '1', b_b: c_c: '2'}
 ```
 
