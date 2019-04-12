@@ -1,7 +1,7 @@
 
 # Changelog
 
-## Trunk
+## Version 0.3.1
 
 * mutate: immutable deep copy of object in arrays
 
