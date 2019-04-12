@@ -1,6 +1,10 @@
 
 # Changelog
 
+## Trunk
+
+* mutate: immutable deep copy of object in arrays
+
 ## Version 0.3.0
 
 * project: csj, esm and umd generation

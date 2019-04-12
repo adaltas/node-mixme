@@ -16,18 +16,22 @@ mutate = ->
   target = arguments[0]
   for i in [1 ... arguments.length]
     source = arguments[i]
-    if is_object_literal(target) and is_object_literal(source)
+    if is_object_literal(source)
+      target = {} unless is_object_literal target
       for name of source
         target[name] = mutate target[name], source[name]
+    else if Array.isArray source
+      target = for v in source
+        mutate undefined, v
     else unless source is undefined
-      source = source.slice(0) if Array.isArray source
       target = source
   target
 
 snake_case = (source, convert=true) ->
   target = {}
   if is_object_literal source
-    u = if typeof convert is 'number' and convert > 0 then convert - 1 else convert
+    u = if typeof convert is 'number' and convert > 0
+    then convert - 1 else convert
     for name of source
       src = source[name]
       name = _snake_case(name) if convert
@@ -48,6 +52,6 @@ is_object_literal = (obj) ->
   if typeof obj isnt 'object' or obj is null then false else
     while not false
       break if Object.getPrototypeOf(test = Object.getPrototypeOf(test)) is null
-    return Object.getPrototypeOf(obj) is test;
+    return Object.getPrototypeOf(obj) is test
 
 export {clone, is_object, is_object_literal, merge, mutate, snake_case}

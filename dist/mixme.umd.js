@@ -38,21 +38,33 @@
   };
 
   exports.mutate = function mutate() {
-    var i, j, name, ref, source, target;
+    var i, j, name, ref, source, target, v;
     target = arguments[0];
 
     for (i = j = 1, ref = arguments.length; 1 <= ref ? j < ref : j > ref; i = 1 <= ref ? ++j : --j) {
       source = arguments[i];
 
-      if (exports.is_object_literal(target) && exports.is_object_literal(source)) {
+      if (exports.is_object_literal(source)) {
+        if (!exports.is_object_literal(target)) {
+          target = {};
+        }
+
         for (name in source) {
           target[name] = exports.mutate(target[name], source[name]);
         }
-      } else if (source !== void 0) {
-        if (Array.isArray(source)) {
-          source = source.slice(0);
-        }
+      } else if (Array.isArray(source)) {
+        target = function () {
+          var k, len, results;
+          results = [];
 
+          for (k = 0, len = source.length; k < len; k++) {
+            v = source[k];
+            results.push(exports.mutate(void 0, v));
+          }
+
+          return results;
+        }();
+      } else if (source !== void 0) {
         target = source;
       }
     }

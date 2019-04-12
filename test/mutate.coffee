@@ -33,6 +33,12 @@ describe 'mutate', ->
       .should.be.true()
     
   describe '2nd arg object', ->
+    
+    it 'is immutable', ->
+      source = a_key: 'a value', b_key: 'b value'
+      result = mutate null, source
+      source.a_key = 'new value'
+      result.a_key.should.eql 'a value'
 
     it 'object with object', ->
       obj1 = { a_key: 'a value', b_key: 'b value'}
@@ -101,3 +107,10 @@ describe 'mutate', ->
       obj2.b.shift()
       obj3.c.shift()
       res.should.eql a: [1,2], b: [5,6], c: [7,8]
+        
+    it 'array elements are cloned', ->
+      obj1 = a: null
+      obj2 = a: [b: {c: 3, d: 4}]
+      res = mutate obj1, obj2
+      obj2.a[0].b.c = 5
+      res.should.eql a: [b: {c: 3, d: 4}]
