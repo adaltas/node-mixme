@@ -1,6 +1,10 @@
 
 # Changelog
 
+## Trunk
+
+* package: use files instead of npmignore
+
 ## Version 0.3.1
 
 * mutate: immutable deep copy of object in arrays

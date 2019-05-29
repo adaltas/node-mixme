@@ -33,6 +33,9 @@
     "clone",
     "recursive"
   ],
+  "files": [
+    "/dist"
+  ],
   "license": "MIT",
   "main": "dist/mixme.cjs.js",
   "module": "dist/mixme.esm.js",
