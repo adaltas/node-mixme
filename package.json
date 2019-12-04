@@ -2,13 +2,8 @@
   "name": "mixme",
   "description": "A library for recursive merging of Javascript objects",
   "version": "0.3.2",
-  "author": "David Worms <david@adaltas.com>",
-  "contributors": [
-    {
-      "name": "David Worms",
-      "email": "david@adaltas.com"
-    }
-  ],
+  "author": "David Worms <david@adaltas.com> (https://www.adaltas.com)",
+  "contributors": [],
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
