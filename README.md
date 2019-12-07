@@ -67,16 +67,6 @@ const target = snake_case({aA: '1', bB: cC: '2'})
 
 ## Example
 
-Merge an existing object with a second one:
-
-```
-obj1 = { a_key: 'a value', b_key: 'b value'};
-obj2 = { b_key: 'new b value'};
-result = misc.mutate obj1, obj2
-assert.eql result, obj1
-assert.eql obj1.b_key, 'new b value'
-```
-
 Create a new object from two objects:
 
 ```
@@ -84,6 +74,16 @@ obj1 = { a_key: 'a value', b_key: 'b value'}
 obj2 = { b_key: 'new b value'}
 result = misc.merge obj1, obj2
 assert.eql result.b_key, 'new b value'
+```
+
+Merge an existing object with a second one:
+
+```
+obj1 = { a_key: 'a value', b_key: 'b value'};
+obj2 = { b_key: 'new b value'};
+result = mixme.mutate obj1, obj2
+assert.eql result, obj1
+assert.eql obj1.b_key, 'new b value'
 ```
 
 ## Testing

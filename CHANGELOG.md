@@ -1,6 +1,10 @@
 
 # Changelog
 
+## Trunk
+
+* readme: fix examples
+
 ## Version 0.3.3
 
 * package: update adaltas url
