@@ -16,7 +16,7 @@ mutate = ->
   target = arguments[0]
   for i in [1 ... arguments.length]
     source = arguments[i]
-    if is_object_literal(source)
+    if is_object_literal source
       target = {} unless is_object_literal target
       for name of source
         target[name] = mutate target[name], source[name]
