@@ -36,8 +36,8 @@ const target = mutate(source, {b: '2'});
 It is possible to clone a literal object by simply calling `mixme` with this object as the first argument. Use the `clone` function in case you wish to clone any type of argument including arrays:
 
 ```js
-const clone = require('clone')
-const target = mixme.clone(['a', 'b'])
+const {clone} = require('mixme')
+const target = clone(['a', 'b'])
 // target is now a copy of source
 ```
 
@@ -46,7 +46,7 @@ const target = mixme.clone(['a', 'b'])
 Use the `is_object_literal` function to ensure an object is literate.
 
 ```js
-const is_object_literal = require('mixme')
+const {is_object_literal} = require('mixme')
 // {} is literate
 is_object_literal({})
 // error is not literate
@@ -60,9 +60,21 @@ is_object_literal([])
 Clone a object and convert its properties into snake case.
 
 ```js
-const snake_case = require('mixme')
-const target = snake_case({aA: '1', bB: cC: '2'})
-// target is now {a_a: '1', b_b: c_c: '2'}
+const {snake_case} = require('mixme')
+snake_case({aA: '1', bB: cC: '2'})
+// Return {a_a: '1', b_b: c_c: '2'}
+```
+
+### Function `compare(item_1, item_2)`
+
+Compare two items and return true if their values match.
+
+```js
+const {compare} = require('mixme')
+compare([{a: 1}], [{a: 1}])
+// Return true
+compare({a: 1}, {a: 2})
+// Return false
 ```
 
 ## Example

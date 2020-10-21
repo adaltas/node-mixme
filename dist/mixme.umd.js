@@ -96,6 +96,55 @@
     return target;
   };
 
+  exports.compare = function compare(el1, el2) {
+    var i, j, k, key, keys1, keys2, len, ref;
+
+    if (exports.is_object_literal(el1)) {
+      if (!exports.is_object_literal(el2)) {
+        return false;
+      }
+
+      keys1 = Object.keys(el1).sort();
+      keys2 = Object.keys(el2).sort();
+
+      if (keys1.length !== keys2.length) {
+        return false;
+      }
+
+      for (i = j = 0, len = keys1.length; j < len; i = ++j) {
+        key = keys1[i];
+
+        if (key !== keys2[i]) {
+          return false;
+        }
+
+        if (!exports.compare(el1[key], el2[key])) {
+          return false;
+        }
+      }
+    } else if (Array.isArray(el1)) {
+      if (!Array.isArray(el2)) {
+        return false;
+      }
+
+      if (el1.length !== el2.length) {
+        return false;
+      }
+
+      for (i = k = 0, ref = el1.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
+        if (!exports.compare(el1[i], el2[i])) {
+          return false;
+        }
+      }
+    } else {
+      if (el1 !== el2) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
   _snake_case = function _snake_case(str) {
     return str.replace(/([A-Z])/g, function (_, match, index) {
       return '_' + match.toLowerCase();

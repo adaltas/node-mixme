@@ -40,6 +40,25 @@ snake_case = (source, convert=true) ->
     target = source
   target
 
+compare = (el1, el2) ->
+  if is_object_literal el1
+    return false unless is_object_literal el2
+    keys1 = Object.keys(el1).sort()
+    keys2 = Object.keys(el2).sort()
+    return false unless keys1.length is keys2.length
+    for key, i in keys1
+      return false unless key is keys2[i]
+      return false unless compare el1[key], el2[key]
+  else if Array.isArray el1
+    return false unless Array.isArray el2
+    return false if el1.length isnt el2.length
+    for i in [0...el1.length]
+      return false unless compare el1[i], el2[i]
+  else
+    return false unless el1 is el2
+  true
+    
+
 _snake_case = (str) ->
   str.replace /([A-Z])/g, (_, match, index) ->
     '_' + match.toLowerCase()
@@ -54,4 +73,4 @@ is_object_literal = (obj) ->
       break if Object.getPrototypeOf(test = Object.getPrototypeOf(test)) is null
     return Object.getPrototypeOf(obj) is test
 
-export {clone, is_object, is_object_literal, merge, mutate, snake_case}
+export {clone, compare, is_object, is_object_literal, merge, mutate, snake_case}

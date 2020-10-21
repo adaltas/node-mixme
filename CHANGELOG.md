@@ -1,6 +1,10 @@
 
 # Changelog
 
+## Trunk
+
+* compare: new function
+
 ## Version 0.3.5
 
 * readme: fix examples
