@@ -1,5 +1,4 @@
 
-should = require 'should'
 import {merge} from '../src'
 
 describe 'mixme.merge', ->

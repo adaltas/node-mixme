@@ -1,5 +1,4 @@
 
-require 'should'
 import {is_object_literal} from '../src'
 
 describe 'mixme.is_object_literal', ->

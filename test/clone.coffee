@@ -1,5 +1,4 @@
 
-require 'should'
 import {clone} from '../src'
 
 describe 'clone', ->

@@ -1,5 +1,4 @@
 
-require 'should'
 import {compare} from '../src'
 
 describe 'compare', ->

@@ -5,11 +5,11 @@
   "author": "David Worms <david@adaltas.com> (https://www.adaltas.com)",
   "contributors": [],
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "coffeescript": "^2.4.1",
-    "mocha": "^6.1.1",
-    "rollup": "^1.9.0",
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "coffeescript": "^2.5.1",
+    "mocha": "^8.2.1",
+    "rollup": "^2.38.5",
     "rollup-plugin-babel": "^4.3.2",
     "should": "^13.2.3"
   },
@@ -34,6 +34,17 @@
   "license": "MIT",
   "main": "dist/mixme.cjs.js",
   "module": "dist/mixme.esm.js",
+  "mocha": {
+    "throw-deprecation": true,
+    "require": [
+      "should",
+      "./coffee.config.js"
+    ],
+    "inline-diffs": true,
+    "timeout": 40000,
+    "reporter": "spec",
+    "recursive": true
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/adaltas/node-mixme.git"

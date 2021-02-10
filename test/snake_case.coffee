@@ -1,5 +1,4 @@
 
-require 'should'
 import {snake_case} from  '../src'
 
 describe 'snake_case', ->
