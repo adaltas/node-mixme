@@ -69,6 +69,7 @@ is_object = (obj) ->
 is_object_literal = (obj) ->
   test = obj
   if typeof obj isnt 'object' or obj is null then false else
+    return true if Object.getPrototypeOf(test) is null
     while not false
       break if Object.getPrototypeOf(test = Object.getPrototypeOf(test)) is null
     return Object.getPrototypeOf(obj) is test

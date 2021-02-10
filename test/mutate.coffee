@@ -12,6 +12,17 @@ describe 'mutate', ->
       mutate obj1, obj2
       .should.eql { a: 'a value', b: 'b new', c: { d: 'd new', f: 'f value'}}
 
+    it 'null prototype', ->
+      obj1 = Object.create null
+      obj1.a = 'a value'
+      obj1.b = 'b value'
+      obj1.c = d: 'd value', f: 'f value'
+      obj2 = b: 'b new', c: d: 'd new'
+      mutate obj1, obj2
+      should(Object.getPrototypeOf obj1).be.null()
+      {...obj1}
+      .should.eql { a: 'a value', b: 'b new', c: { d: 'd new', f: 'f value'}}
+
   describe '2nd arg not object', ->
     
     it 'object with string', ->

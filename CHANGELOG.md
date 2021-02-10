@@ -1,6 +1,10 @@
 
 # Changelog
 
+## Trunk
+
+* feat: support object with null prototype
+
 ## Version 0.4.0
 
 * compare: new function

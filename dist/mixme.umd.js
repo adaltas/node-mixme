@@ -162,6 +162,10 @@
     if (_typeof(obj) !== 'object' || obj === null) {
       return false;
     } else {
+      if (Object.getPrototypeOf(test) === null) {
+        return true;
+      }
+
       while (!false) {
         if (Object.getPrototypeOf(test = Object.getPrototypeOf(test)) === null) {
           break;

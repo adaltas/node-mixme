@@ -7,6 +7,7 @@ describe 'mixme.is_object_literal', ->
   it 'accept object', ->
     is_object_literal({}).should.be.true()
     is_object_literal(new Object()).should.be.true()
+    is_object_literal(Object.create(null)).should.be.true()
   
   it 'reject non object', ->
     is_object_literal([]).should.be.false()
