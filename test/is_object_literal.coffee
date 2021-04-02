@@ -7,6 +7,10 @@ describe 'mixme.is_object_literal', ->
     is_object_literal({}).should.be.true()
     is_object_literal(new Object()).should.be.true()
     is_object_literal(Object.create(null)).should.be.true()
+    # Mozilla docs says `Object.create({})` create a normal object
+    # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+    # However, something must be different, no time to investigate
+    # is_object_literal(Object.create({})).should.be.true()
   
   it 'reject non object', ->
     is_object_literal([]).should.be.false()
