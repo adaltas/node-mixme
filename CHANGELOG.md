@@ -1,7 +1,7 @@
 
 # Changelog
 
-## Trunk
+## Version 0.5.1
 
 * fix: dont pollute object proto #1
 * chore: latest dependencies
