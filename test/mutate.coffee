@@ -23,6 +23,12 @@ describe 'mutate', ->
       {...obj1}
       .should.eql { a: 'a value', b: 'b new', c: { d: 'd new', f: 'f value'}}
 
+    it 'dont merge proto', ->
+      src = {}
+      mutate src, JSON.parse '{"__proto__": {"polluted": "ohno"}}'
+      obj = Object.create {}
+      should(obj.polluted).be.Undefined()
+
   describe '2nd arg not object', ->
     
     it 'object with string', ->

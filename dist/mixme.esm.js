@@ -46,6 +46,10 @@ _mutate = function mutate() {
       }
 
       for (name in source) {
+        if (name === '__proto__') {
+          continue;
+        }
+
         target[name] = _mutate(target[name], source[name]);
       }
     } else if (Array.isArray(source)) {

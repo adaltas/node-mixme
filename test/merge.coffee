@@ -25,3 +25,8 @@ describe 'mixme.merge', ->
     .should.eql a: 1, b: 2, c: 0
     obj2
     .should.eql a: 1, c: 3, d: 4
+
+  it 'dont merge proto', ->
+    merge {}, JSON.parse '{"__proto__": {"polluted": "ohno"}}'
+    obj = Object.create {}
+    should(obj.polluted).be.Undefined()

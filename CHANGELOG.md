@@ -1,6 +1,11 @@
 
 # Changelog
 
+## Trunk
+
+* fix: dont pollute object proto #1
+* chore: latest dependencies
+
 ## Version 0.5.0
 
 * feat: support object with null prototype
