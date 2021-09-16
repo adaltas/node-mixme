@@ -19,7 +19,10 @@ mutate = ->
     if is_object_literal source
       target = {} unless is_object_literal target
       for name of source
-        continue if name is '__proto__'
+        # See
+        # https://github.com/adaltas/node-mixme/issues/1
+        # https://github.com/adaltas/node-mixme/issues/2
+        continue if /__proto__|constructor|prototype|eval|function|\*|\+|;|\s|\(|\)|!/.test name
         target[name] = mutate target[name], source[name]
     else if Array.isArray source
       target = for v in source

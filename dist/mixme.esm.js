@@ -46,7 +46,10 @@ _mutate = function mutate() {
       }
 
       for (name in source) {
-        if (name === '__proto__') {
+        if (/__proto__|constructor|prototype|eval|function|\*|\+|;|\s|\(|\)|!/.test(name)) {
+          // See
+          // https://github.com/adaltas/node-mixme/issues/1
+          // https://github.com/adaltas/node-mixme/issues/2
           continue;
         }
 

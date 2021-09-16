@@ -1,6 +1,10 @@
 
 # Changelog
 
+## Trunk
+
+* fix: prevent code injection in copying properties
+
 ## Version 0.5.1
 
 * fix: dont pollute object proto #1
