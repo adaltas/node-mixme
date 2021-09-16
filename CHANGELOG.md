@@ -1,7 +1,7 @@
 
 # Changelog
 
-## Trunk
+## Version 0.5.2
 
 * fix: prevent code injection in copying properties
 
