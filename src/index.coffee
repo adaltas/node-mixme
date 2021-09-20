@@ -22,7 +22,10 @@ mutate = ->
         # See
         # https://github.com/adaltas/node-mixme/issues/1
         # https://github.com/adaltas/node-mixme/issues/2
-        continue if /__proto__|constructor|prototype|eval|function|\*|\+|;|\s|\(|\)|!/.test name
+        # continue if /__proto__|constructor|prototype|eval|function|\*|\+|;|\s|\(|\)|!/.test name
+        # Unless proven wrong, I consider ok to copy any properties named eval
+        # or function, we are not executing those, only copying.
+        continue if /__proto__|constructor|prototype/.test name
         target[name] = mutate target[name], source[name]
     else if Array.isArray source
       target = for v in source
