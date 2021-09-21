@@ -5,3 +5,4 @@
 !.npmignore
 !.gitignore
 !.travis.yml
+!.husky
