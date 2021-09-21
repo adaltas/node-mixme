@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.5.3](https://github.com/adaltas/node-mixme/compare/v0.5.2...v0.5.3) (2021-09-21)
+
+
+### Bug Fixes
+
+* relax properties excluded from copy ([d22c51a](https://github.com/adaltas/node-mixme/commit/d22c51a16e9da10d34ac52ea9189ef75d951c980))
+
 
 # Changelog
 
