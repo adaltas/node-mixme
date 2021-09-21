@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.4](https://github.com/adaltas/node-mixme/compare/v0.5.3...v0.5.4) (2021-09-21)
+
+
+### Bug Fixes
+
+* remove constructor from excluded properties ([cf6af53](https://github.com/adaltas/node-mixme/commit/cf6af53c51ada2d3189dea5a25b8a9ee793d8197))
+
 ## [0.5.3](https://github.com/adaltas/node-mixme/compare/v0.5.2...v0.5.3) (2021-09-21)
 
 
