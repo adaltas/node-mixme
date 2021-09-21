@@ -1,5 +1,4 @@
 
-
 merge = ->
   mutate {}, arguments...
 
@@ -64,7 +63,6 @@ compare = (el1, el2) ->
   else
     return false unless el1 is el2
   true
-    
 
 _snake_case = (str) ->
   str.replace /([A-Z])/g, (_, match, index) ->
