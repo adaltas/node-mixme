@@ -127,4 +127,4 @@ Note:
 
 * David Worms: <https://github.com/wdavidw>
 
-This package is developed by [Adaltas](http://www.adaltas.com).
+This package is developed by [Adaltas](https://www.adaltas.com).
