@@ -79,4 +79,4 @@ is_object_literal = (obj) ->
       break if Object.getPrototypeOf(test = Object.getPrototypeOf(test)) is null
     return Object.getPrototypeOf(obj) is test
 
-export {clone, compare, is_object, is_object_literal, merge, mutate, snake_case}
+export { clone, compare, is_object, is_object_literal, merge, mutate, snake_case }

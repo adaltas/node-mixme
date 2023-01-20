@@ -14,7 +14,7 @@ The API is minimalist, pass as many literal objects as you wish, they will all b
 merged. This function is immutable, the source objects won't be altered.
 
 ```js
-const {merge} = require('mixme')
+const { merge } = require('mixme')
 const target = merge({a: '1'}, {b: '2'});
 // target is {a: '1', b: '2'}
 ```
@@ -24,7 +24,7 @@ const target = merge({a: '1'}, {b: '2'});
 Use the `mutate` function to enrich an object. The first argument will be mutated:
 
 ```js
-const {mutate} = require('mixme')
+const { mutate } = require('mixme')
 const source = {a: '1'};
 const target = mutate(source, {b: '2'});
 // target is the same as source
@@ -36,7 +36,7 @@ const target = mutate(source, {b: '2'});
 It is possible to clone a literal object by simply calling `mixme` with this object as the first argument. Use the `clone` function in case you wish to clone any type of argument including arrays:
 
 ```js
-const {clone} = require('mixme')
+const { clone } = require('mixme')
 const target = clone(['a', 'b'])
 // target is now a copy of source
 ```
@@ -46,7 +46,7 @@ const target = clone(['a', 'b'])
 Use the `is_object_literal` function to ensure an object is literate.
 
 ```js
-const {is_object_literal} = require('mixme')
+const { is_object_literal } = require('mixme')
 // {} is literate
 is_object_literal({})
 // error is not literate
@@ -60,7 +60,7 @@ is_object_literal([])
 Clone a object and convert its properties into snake case.
 
 ```js
-const {snake_case} = require('mixme')
+const { snake_case } = require('mixme')
 snake_case({aA: '1', bB: cC: '2'})
 // Return {a_a: '1', b_b: c_c: '2'}
 ```
@@ -70,7 +70,7 @@ snake_case({aA: '1', bB: cC: '2'})
 Compare two items and return true if their values match.
 
 ```js
-const {compare} = require('mixme')
+const { compare } = require('mixme')
 compare([{a: 1}], [{a: 1}])
 // Return true
 compare({a: 1}, {a: 2})
