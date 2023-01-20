@@ -6,6 +6,11 @@
 Merge multiple object recursively. The last object takes precedence over the 
 previous ones. Only objects are merged. Arrays are overwritten.
 
+- Zero dependencies
+- Small size
+- Pure functions
+- ESM and CommonJS support
+
 ## API
 
 ### Function `merge(...data)`
