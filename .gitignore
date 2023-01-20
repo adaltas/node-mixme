@@ -4,5 +4,6 @@
 /yarn.lock
 !.npmignore
 !.gitignore
+!.github
 !.travis.yml
 !.husky
