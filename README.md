@@ -1,7 +1,7 @@
 
 # Node.js mixme
 
-[![Build Status](https://secure.travis-ci.org/adaltas/node-mixme.png)](http://travis-ci.org/adaltas/node-mixme)
+[![Build Status](https://github.com/adaltas/node-mixme/actions/workflows/test.yml/badge.svg)
 
 Merge multiple object recursively. The last object takes precedence over the 
 previous ones. Only objects are merged. Arrays are overwritten.
