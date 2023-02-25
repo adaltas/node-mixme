@@ -67,5 +67,6 @@
     "release:patch": "standard-version --release-as patch",
     "release:major": "standard-version --release-as major"
   },
-  "type": "module"
+  "type": "module",
+  "types": "index.d.ts"
 }

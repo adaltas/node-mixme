@@ -1,9 +1,9 @@
 
 # Node.js mixme
 
-[![Build Status](https://github.com/adaltas/node-mixme/actions/workflows/test.yml/badge.svg)
+![Build Status](https://github.com/adaltas/node-mixme/actions/workflows/test.yml/badge.svg)
 
-Merge multiple object recursively. The last object takes precedence over the previous ones. Only objects are merged. Arrays are overwritten.
+Merge multiple object recursively, with TypeScript support. The last object takes precedence over the previous ones. Only objects are merged. Arrays are overwritten.
 
 - Zero dependencies
 - Small size
