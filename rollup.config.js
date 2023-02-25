@@ -1,6 +1,5 @@
-
-const babel = require('rollup-plugin-babel');
-const pkg = require('./package');
+import babel from "rollup-plugin-babel";
+import pkg from "./package.json";
 
 export default {
   input: 'lib/index.js',

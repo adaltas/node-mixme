@@ -1,11 +1,7 @@
+import assert from "assert";
+import { mutate } from "../lib/index.js";
 
-var assert = require('assert');
-var mixme = require('../lib');
+const obj = { a: "1" };
+mutate(obj, { b: "2" });
 
-obj = {a: '1'};
-mixme.mutate(obj, {b: '2'})
-
-assert.deepEqual(
-  obj,
-  {a: '1', b: '2'}
-);
+assert.deepEqual(obj, { a: "1", b: "2" });
