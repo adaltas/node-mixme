@@ -129,10 +129,7 @@
       if (Object.getPrototypeOf(test) === null) {
         return true;
       }
-      while (true) {
-        if (Object.getPrototypeOf(test = Object.getPrototypeOf(test)) === null) {
-          break;
-        }
+      while (Object.getPrototypeOf(test = Object.getPrototypeOf(test)) === null) {
       }
       return Object.getPrototypeOf(obj) === test;
     }
