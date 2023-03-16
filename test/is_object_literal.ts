@@ -1,3 +1,5 @@
+
+import "should";
 import { is_object_literal } from "../lib/index.js";
 
 describe("mixme.is_object_literal", () => {

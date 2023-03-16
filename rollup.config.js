@@ -5,16 +5,16 @@ export default {
   input: 'lib/index.js',
   output: [
     {
-      file: `dist/${pkg.name}.umd.js`,
+      file: `dist/umd/${pkg.name}.js`,
       name: 'mixme',
       format: 'umd'
     },
     {
-      file: `dist/${pkg.name}.cjs.js`,
+      file: `dist/cjs/${pkg.name}.js`,
       format: 'cjs'
     },
     {
-      file: `dist/${pkg.name}.esm.js`,
+      file: `dist/esm/${pkg.name}..js`,
       format: 'esm'
     }
   ],
