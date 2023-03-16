@@ -1,3 +1,4 @@
+import "should";
 import { compare } from "../lib/index.js";
 
 describe("compare", () => {

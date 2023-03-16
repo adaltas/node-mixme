@@ -1,3 +1,5 @@
+
+import "should";
 import { snake_case } from "../lib/index.js";
 
 describe("snake_case", () => {

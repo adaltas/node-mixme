@@ -1,3 +1,5 @@
+
+import should from 'should';
 import { merge } from "../lib/index.js";
 
 describe("mixme.merge", () => {

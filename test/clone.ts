@@ -1,22 +1,24 @@
+
+import "should";
 import { clone } from "../lib/index.js";
 
 describe("clone", () => {
   it("array", () => {
-    const source = ["a", { b: "c" }, 10, ["d", { e: "f" }]];
+    const source = ["a", { b: "c" }, 10, null, ["d", { e: "f" }]];
     const result = clone(source);
     result.should.eql(source);
     source.forEach((_, index) => {
       source[index] = null;
     });
-    result.should.eql(["a", { b: "c" }, 10, ["d", { e: "f" }]]);
+    result.should.eql(["a", { b: "c" }, 10, null, ["d", { e: "f" }]]);
   });
 
   it("object", () => {
-    const source = { a: "b", c: "d" };
+    const source = { a: "b", c: "d" } as { a: string | null, c: string | null};
     const result = clone(source);
     result.should.eql(source);
     source.a = null;
-    source.b = null;
+    source.c = null;
     result.should.eql({ a: "b", c: "d" });
   });
 
