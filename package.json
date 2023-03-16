@@ -57,7 +57,7 @@
     "lib"
   ],
   "license": "MIT",
-  "main": "dist/cjs/mixme.js",
+  "main": "./dist/cjs/index.cjs",
   "mocha": {
     "inline-diffs": true,
     "loader": "ts-node/esm",
@@ -78,6 +78,9 @@
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
     "build": "rollup -c && cp lib/index.d.ts dist/cjs/index.d.cts",
+    "build": "npm run build:rollup && npm run build:ts",
+    "build:rollup": "rollup -c",
+    "build:ts": "cp lib/index.d.ts dist/cjs/index.d.cts && cp lib/*.ts dist/esm",
     "test": "mocha 'test/**/*.{js,ts}'",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
@@ -86,5 +89,12 @@
   },
   "type": "module",
   "types": "lib/index.d.ts",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "dist/esm/index.d.ts"
+      ]
+    }
+  },
   "dependencies": {}
 }
