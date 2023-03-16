@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.9](https://github.com/adaltas/node-mixme/compare/v0.5.8...v0.5.9) (2023-03-16)
+
+
+### Bug Fixes
+
+* cjs package paths ([dc90193](https://github.com/adaltas/node-mixme/commit/dc90193ada3dcd1ce1b94f0b2d734553e8a167a8))
+
 ### [0.5.8](https://github.com/adaltas/node-mixme/compare/v0.5.6...v0.5.8) (2023-03-16)
 
 

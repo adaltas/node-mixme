@@ -1,7 +1,7 @@
 {
   "name": "mixme",
   "description": "A library for recursively merging JavaScript objects",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "author": "David Worms <david@adaltas.com> (https://www.adaltas.com)",
   "contributors": [
     "Paul Farault <paul.farault@gmail.com>"
@@ -77,7 +77,6 @@
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
-    "build": "rollup -c && cp lib/index.d.ts dist/cjs/index.d.cts",
     "build": "npm run build:rollup && npm run build:ts",
     "build:rollup": "rollup -c",
     "build:ts": "cp lib/index.d.ts dist/cjs/index.d.cts && cp lib/*.ts dist/esm",
