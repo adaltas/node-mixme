@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.8](https://github.com/adaltas/node-mixme/compare/v0.5.6...v0.5.8) (2023-03-16)
+
+
+### Bug Fixes
+
+* publish lib folder to npm ([0fa53e2](https://github.com/adaltas/node-mixme/commit/0fa53e29901c1f10065a9aaf38f4761e01e7d914))
+
+### [0.5.7](https://github.com/adaltas/node-mixme/compare/v0.5.6...v0.5.7) (2023-03-16)
+
+
+### Bug Fixes
+
+* publish lib folder to npm ([0fa53e2](https://github.com/adaltas/node-mixme/commit/0fa53e29901c1f10065a9aaf38f4761e01e7d914))
+
 ### [0.5.6](https://github.com/adaltas/node-mixme/compare/v0.5.5...v0.5.6) (2023-03-16)
 
 
