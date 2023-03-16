@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.6](https://github.com/adaltas/node-mixme/compare/v0.5.5...v0.5.6) (2023-03-16)
+
+
+### Features
+
+* add typescript support ([dbc168f](https://github.com/adaltas/node-mixme/commit/dbc168f2883ded8716475a9227040a0918d018f3))
+* migrate from coffee to js ([44d13c0](https://github.com/adaltas/node-mixme/commit/44d13c0ff60ecb7a6a3122951679199897ff2dac))
+
 ### [0.5.5](https://github.com/adaltas/node-mixme/compare/v0.5.4...v0.5.5) (2023-01-20)
 
 ### [0.5.4](https://github.com/adaltas/node-mixme/compare/v0.5.3...v0.5.4) (2021-09-21)
