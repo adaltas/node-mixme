@@ -53,7 +53,8 @@
     "recursive"
   ],
   "files": [
-    "/dist"
+    "dist",
+    "lib"
   ],
   "license": "MIT",
   "main": "dist/cjs/mixme.js",
