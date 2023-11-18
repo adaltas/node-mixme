@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/adaltas/node-mixme/compare/v0.5.10...v1.0.0) (2023-11-18)
+
 ### [0.5.10](https://github.com/adaltas/node-mixme/compare/v0.5.9...v0.5.10) (2023-11-18)
 
 
