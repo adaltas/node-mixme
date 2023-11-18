@@ -14,69 +14,6 @@
     }, _typeof(o);
   }
 
-  function merge() {
-    return mutate.apply(void 0, [{}].concat(Array.prototype.slice.call(arguments)));
-  }
-  function clone(target) {
-    if (Array.isArray(target)) {
-      return target.map(function (element) {
-        return clone(element);
-      });
-    } else if (target && _typeof(target) === "object") {
-      return mutate({}, target);
-    } else {
-      return target;
-    }
-  }
-  function mutate() {
-    var target = arguments[0];
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      if (is_object_literal(source)) {
-        if (!is_object_literal(target)) {
-          target = {};
-        }
-        for (var _i = 0, _Object$keys = Object.keys(source); _i < _Object$keys.length; _i++) {
-          var name = _Object$keys[_i];
-          if (/__proto__|prototype/.test(name)) {
-            // See
-            // https://github.com/adaltas/node-mixme/issues/1
-            // https://github.com/adaltas/node-mixme/issues/2
-            // continue if /__proto__|constructor|prototype|eval|function|\*|\+|;|\s|\(|\)|!/.test name
-            // Unless proven wrong, I consider ok to copy any properties named eval
-            // or function, we are not executing those, only copying.
-            continue;
-          }
-          target[name] = mutate(target[name], source[name]);
-        }
-      } else if (Array.isArray(source)) {
-        target = source.map(function (element) {
-          return clone(element);
-        });
-      } else if (source !== undefined) {
-        target = source;
-      }
-    }
-    return target;
-  }
-  function snake_case(source) {
-    var convert = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-    var target = {};
-    if (is_object_literal(source)) {
-      var u = typeof convert === "number" && convert > 0 ? convert - 1 : convert;
-      for (var _i2 = 0, _Object$keys2 = Object.keys(source); _i2 < _Object$keys2.length; _i2++) {
-        var name = _Object$keys2[_i2];
-        var src = source[name];
-        if (convert) {
-          name = snake_case_str(name);
-        }
-        target[name] = snake_case(src, u);
-      }
-    } else {
-      target = source;
-    }
-    return target;
-  }
   function compare(el1, el2) {
     if (is_object_literal(el1)) {
       if (!is_object_literal(el2)) {
@@ -103,8 +40,8 @@
       if (el1.length !== el2.length) {
         return false;
       }
-      for (var _i3 = 0; _i3 < el1.length; _i3++) {
-        if (!compare(el1[_i3], el2[_i3])) {
+      for (var _i = 0; _i < el1.length; _i++) {
+        if (!compare(el1[_i], el2[_i])) {
           return false;
         }
       }
@@ -113,8 +50,16 @@
     }
     return true;
   }
-  function snake_case_str(str) {
-    return str.replace(/([a-z\d])([A-Z]+)/g, "$1_$2").replace(/[-\s]+/g, "_").toLowerCase();
+  function clone(target) {
+    if (Array.isArray(target)) {
+      return target.map(function (element) {
+        return clone(element);
+      });
+    } else if (target && _typeof(target) === "object") {
+      return mutate({}, target);
+    } else {
+      return target;
+    }
   }
   function is_object(obj) {
     return obj && _typeof(obj) === "object" && !Array.isArray(obj);
@@ -131,6 +76,61 @@
       }
       return Object.getPrototypeOf(obj) === test;
     }
+  }
+  function merge() {
+    return mutate.apply(void 0, [{}].concat(Array.prototype.slice.call(arguments)));
+  }
+  function mutate() {
+    var target = arguments[0];
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      if (is_object_literal(source)) {
+        if (!is_object_literal(target)) {
+          target = {};
+        }
+        for (var _i2 = 0, _Object$keys = Object.keys(source); _i2 < _Object$keys.length; _i2++) {
+          var name = _Object$keys[_i2];
+          if (/__proto__|prototype/.test(name)) {
+            // See
+            // https://github.com/adaltas/node-mixme/issues/1
+            // https://github.com/adaltas/node-mixme/issues/2
+            // continue if /__proto__|constructor|prototype|eval|function|\*|\+|;|\s|\(|\)|!/.test name
+            // Unless proven wrong, I consider ok to copy any properties named eval
+            // or function, we are not executing those, only copying.
+            continue;
+          }
+          target[name] = mutate(target[name], source[name]);
+        }
+      } else if (Array.isArray(source)) {
+        target = source.map(function (element) {
+          return clone(element);
+        });
+      } else if (source !== undefined) {
+        target = source;
+      }
+    }
+    return target;
+  }
+  function snake_case(source) {
+    var convert = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+    var target = {};
+    if (is_object_literal(source)) {
+      var u = typeof convert === "number" && convert > 0 ? convert - 1 : convert;
+      for (var _i3 = 0, _Object$keys2 = Object.keys(source); _i3 < _Object$keys2.length; _i3++) {
+        var name = _Object$keys2[_i3];
+        var src = source[name];
+        if (convert) {
+          name = snake_case_str(name);
+        }
+        target[name] = snake_case(src, u);
+      }
+    } else {
+      target = source;
+    }
+    return target;
+  }
+  function snake_case_str(str) {
+    return str.replace(/([a-z\d])([A-Z]+)/g, "$1_$2").replace(/[-\s]+/g, "_").toLowerCase();
   }
 
   exports.clone = clone;

@@ -12,28 +12,20 @@ Merge multiple object recursively, with TypeScript support. The last object take
 
 ## API
 
-### Function `merge(...data)`
+The API is minimalist. The most popular functions are `merge`, `mutate` and `is_object_literal`.
 
-The API is minimalist, pass as many literal objects as you wish, they will all be merged. This function is immutable, the source objects won't be altered.
+### Function `compare(item_1, item_2)`
 
-```js
-import { merge } from "mixme"
-
-const target = merge({a: "1"}, {b: "2"});
-// target is {a: "1", b: "2"}
-```
-
-### Function `mutate(...data)`
-
-Use the `mutate` function to enrich an object. The first argument will be mutated:
+Compare two items and return true if their values match.
 
 ```js
-import { mutate } from "mixme"
+import { compare } from "mixme"
 
-const source = {a: "1"};
-const target = mutate(source, {b: "2"});
-target.c = "3";
-// source and target are both {a: "1", b: "2", c: "3"}
+compare([{a: 1}], [{a: 1}])
+// Return true
+
+compare({a: 1}, {a: 2})
+// Return false
 ```
 
 ### Function `clone(data)`
@@ -64,15 +56,29 @@ is_object_literal(new Error("Catch me"))
 is_object_literal([])
 ```
 
-### Function `snake_case_str(str)`
+### Function `merge(...data)`
 
-Convert a camel case string to snake case, used internally by `snake_case`.
+The API is minimalist, 
+Merge all literal object provided as arguments. This function is immutable, the source objects won't be altered.
 
 ```js
-import { snake_case_str } from "mixme"
+import { merge } from "mixme"
 
-snake_case("myValue")
-// Return "my_value"
+const target = merge({a: "1"}, {b: "2"});
+// target is {a: "1", b: "2"}
+```
+
+### Function `mutate(...data)`
+
+Use the `mutate` function to enrich an object. The first argument will be mutated:
+
+```js
+import { mutate } from "mixme"
+
+const source = {a: "1"};
+const target = mutate(source, {b: "2"});
+target.c = "3";
+// source and target are both {a: "1", b: "2", c: "3"}
 ```
 
 ### Function `snake_case(object)`
@@ -86,18 +92,15 @@ snake_case({aA: "1", bB: cC: "2"})
 // Return {a_a: "1", b_b: c_c: "2"}
 ```
 
-### Function `compare(item_1, item_2)`
+### Function `snake_case_str(str)`
 
-Compare two items and return true if their values match.
+Convert a camel case string to snake case, used internally by `snake_case`.
 
 ```js
-import { compare } from "mixme"
+import { snake_case_str } from "mixme"
 
-compare([{a: 1}], [{a: 1}])
-// Return true
-
-compare({a: 1}, {a: 2})
-// Return false
+snake_case("myValue")
+// Return "my_value"
 ```
 
 ## Example

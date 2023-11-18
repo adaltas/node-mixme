@@ -1,7 +1,8 @@
+export function clone<T>(target: T): T;
+export function compare(el1: unknown, el2: unknown): boolean;
+
 export function is_object(obj: unknown): boolean;
 export function is_object_literal(obj: unknown): boolean;
-export function compare(el1: unknown, el2: unknown): boolean;
-export function clone<T>(target: T): T;
 
 type Merge<T extends object[]> = T extends [
   infer Head extends object,
@@ -41,8 +42,8 @@ type MergeObjects<T extends object, U extends object> = {
       ? U[K] extends Buffer
         ? T[K]
         : U[K] extends object
-          ? MergeObjects<T[K], U[K]>
-          : T[K]
+        ? MergeObjects<T[K], U[K]>
+        : T[K]
       : U[K]
     : K extends keyof T
     ? T[K]
@@ -53,10 +54,6 @@ type MergeObjects<T extends object, U extends object> = {
 
 export function merge<T extends object[]>(...args: T): Merge<T>;
 export function mutate<T extends object[]>(...args: T): Merge<T>;
-
-export function snake_case_str(
-  source: string,
-): string;
 
 type SnakeCase<S extends string> = S extends `${infer T}${infer U}`
   ? `${T extends Uppercase<T> ? "_" : ""}${Lowercase<T>}${SnakeCase<U>}`
@@ -74,3 +71,5 @@ export function snake_case<T extends Record<string, any>>(
   source: T,
   convert?: boolean | number
 ): SnakeCaseKeys<T>;
+
+export function snake_case_str(source: string): string;
