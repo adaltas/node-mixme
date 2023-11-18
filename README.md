@@ -143,7 +143,6 @@ To automatically generate a new version:
 
 ```bash
 yarn run release
-git push --follow-tags origin master
 ```
 
 Package publication is handled by the CI/CD with GitHub action.
