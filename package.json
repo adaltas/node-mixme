@@ -11,6 +11,7 @@
     "@babel/preset-env": "^7.23.3",
     "@commitlint/cli": "^18.4.2",
     "@commitlint/config-conventional": "^18.4.2",
+    "@rollup/plugin-babel": "^6.0.4",
     "@types/mocha": "^10.0.4",
     "@types/node": "^20.9.1",
     "coffeescript": "^2.7.0",
@@ -18,7 +19,6 @@
     "mocha": "^10.2.0",
     "pinst": "^3.0.0",
     "rollup": "^4.5.0",
-    "rollup-plugin-babel": "^4.4.0",
     "should": "^13.2.3",
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.1",
@@ -58,6 +58,7 @@
   ],
   "license": "MIT",
   "main": "./dist/cjs/index.cjs",
+  "module": "dist/esm/index.js",
   "mocha": {
     "inline-diffs": true,
     "loader": "ts-node/esm",
