@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.10](https://github.com/adaltas/node-mixme/compare/v0.5.9...v0.5.10) (2023-11-18)
+
+
+### Features
+
+* export snake_case_str ([5123f74](https://github.com/adaltas/node-mixme/commit/5123f742742a47c8c94561eecaae7b9fc2eeb7d5))
+
 ### [0.5.9](https://github.com/adaltas/node-mixme/compare/v0.5.8...v0.5.9) (2023-03-16)
 
 
