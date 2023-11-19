@@ -8,6 +8,29 @@ function _typeof(o) {
   }, _typeof(o);
 }
 
+function camelize(source) {
+  var depth = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  var target = {};
+  if (is_object_literal(source)) {
+    var d = typeof depth === "number" && depth > 0 ? depth - 1 : depth;
+    for (var _i = 0, _Object$keys = Object.keys(source); _i < _Object$keys.length; _i++) {
+      var key = _Object$keys[_i];
+      var value = source[key];
+      if (depth) {
+        key = camelize_str(key);
+      }
+      target[key] = camelize(value, d);
+    }
+  } else {
+    target = source;
+  }
+  return target;
+}
+function camelize_str(str) {
+  return str.replace(/[_.-](\w|$)/g, function (_, x) {
+    return x.toUpperCase();
+  });
+}
 function compare(el1, el2) {
   if (is_object_literal(el1)) {
     if (!is_object_literal(el2)) {
@@ -34,8 +57,8 @@ function compare(el1, el2) {
     if (el1.length !== el2.length) {
       return false;
     }
-    for (var _i = 0; _i < el1.length; _i++) {
-      if (!compare(el1[_i], el2[_i])) {
+    for (var _i2 = 0; _i2 < el1.length; _i2++) {
+      if (!compare(el1[_i2], el2[_i2])) {
         return false;
       }
     }
@@ -82,8 +105,8 @@ function mutate() {
       if (!is_object_literal(target)) {
         target = {};
       }
-      for (var _i2 = 0, _Object$keys = Object.keys(source); _i2 < _Object$keys.length; _i2++) {
-        var name = _Object$keys[_i2];
+      for (var _i3 = 0, _Object$keys2 = Object.keys(source); _i3 < _Object$keys2.length; _i3++) {
+        var name = _Object$keys2[_i3];
         if (/__proto__|prototype/.test(name)) {
           // See
           // https://github.com/adaltas/node-mixme/issues/1
@@ -106,17 +129,17 @@ function mutate() {
   return target;
 }
 function snake_case(source) {
-  var convert = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  var depth = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
   var target = {};
   if (is_object_literal(source)) {
-    var u = typeof convert === "number" && convert > 0 ? convert - 1 : convert;
-    for (var _i3 = 0, _Object$keys2 = Object.keys(source); _i3 < _Object$keys2.length; _i3++) {
-      var name = _Object$keys2[_i3];
-      var src = source[name];
-      if (convert) {
-        name = snake_case_str(name);
+    var d = typeof depth === "number" && depth > 0 ? depth - 1 : depth;
+    for (var _i4 = 0, _Object$keys3 = Object.keys(source); _i4 < _Object$keys3.length; _i4++) {
+      var key = _Object$keys3[_i4];
+      var value = source[key];
+      if (depth) {
+        key = snake_case_str(key);
       }
-      target[name] = snake_case(src, u);
+      target[key] = snake_case(value, d);
     }
   } else {
     target = source;
@@ -127,4 +150,4 @@ function snake_case_str(str) {
   return str.replace(/([a-z\d])([A-Z]+)/g, "$1_$2").replace(/[-\s]+/g, "_").toLowerCase();
 }
 
-export { clone, compare, is_object, is_object_literal, merge, mutate, snake_case, snake_case_str };
+export { camelize, camelize_str, clone, compare, is_object, is_object_literal, merge, mutate, snake_case, snake_case_str };

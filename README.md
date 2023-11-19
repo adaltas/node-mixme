@@ -14,6 +14,28 @@ Merge multiple object recursively, with TypeScript support. The last object take
 
 The API is minimalist. The most popular functions are `merge`, `mutate` and `is_object_literal`.
 
+### Function `camelize(object)`
+
+Clone a object and convert its properties into snake case.
+
+```js
+import { snake_case } from "mixme"
+
+snake_case({aA: "1", bB: cC: "2"})
+// Return {a_a: "1", b_b: c_c: "2"}
+```
+
+### Function `camelize_str(str)`
+
+Convert a camel case string to snake case, used internally by `snake_case`.
+
+```js
+import { snake_case_str } from "mixme"
+
+snake_case("myValue")
+// Return "my_value"
+```
+
 ### Function `compare(item_1, item_2)`
 
 Compare two items and return true if their values match.

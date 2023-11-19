@@ -1,3 +1,10 @@
+export function camelize<T extends Record<string, any>>(
+  source: T,
+  depth?: boolean | number
+): SnakeCaseKeys<T>;
+
+export function camelize_str(source: string): string;
+
 export function clone<T>(target: T): T;
 export function compare(el1: unknown, el2: unknown): boolean;
 
@@ -69,7 +76,7 @@ type SnakeCaseKeys<T> = T extends Array<infer U>
 
 export function snake_case<T extends Record<string, any>>(
   source: T,
-  convert?: boolean | number
+  depth?: boolean | number
 ): SnakeCaseKeys<T>;
 
 export function snake_case_str(source: string): string;
