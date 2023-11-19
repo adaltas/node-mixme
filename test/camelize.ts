@@ -1,9 +1,7 @@
-
 import "should";
 import { camelize } from "../lib/index.js";
 
 describe("camelize", () => {
-
   it("boolean true", () => {
     const obj = { a_a: "1", b_b: { d_d: { e_e: "5" } }, c_c: "3" };
     camelize(obj, true).should.eql({
@@ -30,5 +28,4 @@ describe("camelize", () => {
       cC: "3",
     });
   });
-  
 });

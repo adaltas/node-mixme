@@ -1,4 +1,3 @@
-
 import "should";
 import { clone } from "../lib/index.js";
 
@@ -14,7 +13,7 @@ describe("clone", () => {
   });
 
   it("object", () => {
-    const source = { a: "b", c: "d" } as { a: string | null, c: string | null};
+    const source = { a: "b", c: "d" } as { a: string | null; c: string | null };
     const result = clone(source);
     result.should.eql(source);
     source.a = null;

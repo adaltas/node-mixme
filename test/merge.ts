@@ -1,5 +1,4 @@
-
-import should from 'should';
+import should from "should";
 import { merge } from "../lib/index.js";
 
 describe("mixme.merge", () => {
@@ -18,7 +17,7 @@ describe("mixme.merge", () => {
     obj1.c = 0;
     const obj2 = { a: 1, c: 3, d: 4 };
     merge(obj1, obj2).should.eql({ a: 1, b: 2, c: 3, d: 4 });
-    ({ ...obj1 }.should.eql({ a: 1, b: 2, c: 0 }));
+    ({ ...obj1 }).should.eql({ a: 1, b: 2, c: 0 });
     obj2.should.eql({ a: 1, c: 3, d: 4 });
   });
 

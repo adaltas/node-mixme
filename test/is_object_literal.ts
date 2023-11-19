@@ -1,4 +1,3 @@
-
 import "should";
 import { is_object_literal } from "../lib/index.js";
 

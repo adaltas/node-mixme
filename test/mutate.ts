@@ -25,11 +25,11 @@ describe("mutate", () => {
       const obj2 = { b: "b new", c: { d: "d new" } };
       mutate(obj1, obj2);
       should.not.exists(Object.getPrototypeOf(obj1));
-      ({ ...obj1 }.should.eql({
+      ({ ...obj1 }).should.eql({
         a: "a value",
         b: "b new",
         c: { d: "d new", f: "f value" },
-      }));
+      });
     });
 
     it("dont merge proto", () => {
@@ -41,7 +41,6 @@ describe("mutate", () => {
   });
 
   describe("2nd arg object", () => {
-
     it("object with object", () => {
       const obj1 = { a_key: "a value", b_key: "b value" };
       const obj2 = { b_key: "new b value" };
@@ -76,7 +75,7 @@ describe("mutate", () => {
     it("buffer with buffer", () => {
       const obj1 = { a_key: Buffer.from("abc") };
       const obj2 = { a_key: Buffer.from("def") };
-      const test = mutate(obj1, obj2)
+      const test = mutate(obj1, obj2);
       test.a_key.toString().should.eql("def");
     });
 

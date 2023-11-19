@@ -1,9 +1,7 @@
-
-import should from 'should';
+import should from "should";
 import { mutate } from "../lib/index.js";
 
 describe("mixme.merge", () => {
-
   describe("1st arg not object", () => {
     it("null makes next object immutable", () => {
       const source = { a_key: "a value", b_key: "b value" };
@@ -32,5 +30,4 @@ describe("mixme.merge", () => {
       should.not.exists(mutate(obj1, obj2));
     });
   });
-
 });
