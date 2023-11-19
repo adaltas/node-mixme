@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/adaltas/node-mixme/compare/v1.0.0...v1.1.0) (2023-11-19)
+
+
+### Features
+
+* new camelize and camelize_str functions ([7d7d3c9](https://github.com/adaltas/node-mixme/commit/7d7d3c9401625add4e207a28e51a7269894c489f))
+
 ## [1.0.0](https://github.com/adaltas/node-mixme/compare/v0.5.10...v1.0.0) (2023-11-18)
 
 ### [0.5.10](https://github.com/adaltas/node-mixme/compare/v0.5.9...v0.5.10) (2023-11-18)
