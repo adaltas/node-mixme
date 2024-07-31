@@ -31,7 +31,6 @@ type Merge<T extends object[]> = T extends [
 //       // Could simplify the code but type negation doesn't seem to work, see
 //       // https://github.com/microsoft/TypeScript/issues/4196
 //       // https://github.com/microsoft/TypeScript/pull/29317
-//       // https://github.com/microsoft/TypeScript/issues/4196
 //       ? U[K] extends object & !Buffer
 //         ? MergeObjects<T[K], U[K]>
 //         : T[K]
