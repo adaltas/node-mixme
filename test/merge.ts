@@ -26,4 +26,19 @@ describe("mixme.merge", () => {
     const obj = Object.create({});
     should(obj.polluted).be.Undefined();
   });
+  it("generic interface matching", () => {
+    interface Test {
+      a?: string;
+      b?: string;
+    }
+    interface Result {
+      a: string;
+      b: string;
+    }
+    const test: Test = {
+      b: "A",
+    };
+    const res: Result = merge<Test[]>({ b: "B" }, test);
+    console.log(res);
+  });
 });
