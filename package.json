@@ -7,22 +7,22 @@
     "Paul Farault <paul.farault@gmail.com>"
   ],
   "devDependencies": {
-    "@babel/core": "^7.23.3",
-    "@babel/preset-env": "^7.23.3",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@rollup/plugin-babel": "^6.0.4",
-    "@types/mocha": "^10.0.4",
-    "@types/node": "^20.9.1",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^22.0.0",
     "coffeescript": "^2.7.0",
-    "mocha": "^10.2.0",
     "husky": "^9.1.4",
+    "mocha": "^10.7.0",
     "pinst": "^3.0.0",
-    "rollup": "^4.5.0",
+    "rollup": "^4.19.1",
     "should": "^13.2.3",
     "standard-version": "^9.5.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
   },
   "engines": {
     "node": ">= 8.0.0"
