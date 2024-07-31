@@ -9,14 +9,14 @@
   "devDependencies": {
     "@babel/core": "^7.23.3",
     "@babel/preset-env": "^7.23.3",
-    "@commitlint/cli": "^18.4.2",
-    "@commitlint/config-conventional": "^18.4.2",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@rollup/plugin-babel": "^6.0.4",
     "@types/mocha": "^10.0.4",
     "@types/node": "^20.9.1",
     "coffeescript": "^2.7.0",
-    "husky": "^8.0.3",
     "mocha": "^10.2.0",
+    "husky": "^9.1.4",
     "pinst": "^3.0.0",
     "rollup": "^4.5.0",
     "should": "^13.2.3",
@@ -75,7 +75,6 @@
     "url": "https://github.com/adaltas/node-mixme.git"
   },
   "scripts": {
-    "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
     "build": "npm run build:rollup && npm run build:ts",
@@ -86,7 +85,8 @@
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
     "release:major": "standard-version --release-as major",
-    "postrelease": "git push --follow-tags origin master"
+    "postrelease": "git push --follow-tags origin master",
+    "prepare": "husky"
   },
   "type": "module",
   "types": "lib/index.d.ts",
