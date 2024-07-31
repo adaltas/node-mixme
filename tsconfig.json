@@ -1,9 +1,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    // "target": "esnext",
     "esModuleInterop": true,
-    "module": "ES2020",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "strict": true,
   }
 }
