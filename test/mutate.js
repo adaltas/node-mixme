@@ -1,7 +1,7 @@
 import should from "should";
-import { mutate } from "../lib/index.js";
+import { mutate } from "../src/index.js";
 
-describe("mixme.merge", function () {
+describe("mutate(js)", function () {
   describe("1st arg not object", function () {
     it("null makes next object immutable", function () {
       const source = { a_key: "a value", b_key: "b value" };

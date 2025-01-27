@@ -1,8 +1,8 @@
 import "should";
-import { is_object_literal } from "../lib/index.js";
+import { is_object_literal } from "../src/index.js";
 
-describe("mixme.is_object_literal", () => {
-  it("accept object", () => {
+describe("mixme.is_object_literal", function () {
+  it("accept object", function () {
     is_object_literal({}).should.be.true();
     is_object_literal(new Object()).should.be.true();
     is_object_literal(Object.create(null)).should.be.true();
@@ -12,9 +12,9 @@ describe("mixme.is_object_literal", () => {
     // is_object_literal(Object.create({})).should.be.true()
   });
 
-  it("reject non object", () => {
+  it("reject non object", function () {
     is_object_literal([]).should.be.false();
-    is_object_literal(new Array()).should.be.false();
+    is_object_literal([]).should.be.false();
     is_object_literal(new String()).should.be.false();
     is_object_literal(new String()).should.be.false();
     is_object_literal(new Error()).should.be.false();

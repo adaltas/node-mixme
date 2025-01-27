@@ -1,15 +1,15 @@
 import "should";
-import { compare } from "../lib/index.js";
+import { compare } from "../src/index.js";
 
-describe("compare", () => {
-  it("array", () => {
+describe("compare", function () {
+  it("array", function () {
     compare(["a"], ["a"]).should.be.true();
     compare([["a"]], [["a"]]).should.be.true();
     compare("a", ["a"]).should.be.false();
     compare(["a"], "a").should.be.false();
   });
 
-  it("object", () => {
+  it("object", function () {
     // Object with object
     compare({ a: 1 }, { a: 1 }).should.be.true();
     // Agnostic to key order
@@ -21,14 +21,14 @@ describe("compare", () => {
     compare({ a: 1, b: 2 }, { a: 1 }).should.be.false();
   });
 
-  it("string", () => {
+  it("string", function () {
     // Object with object
     compare("1", "1").should.be.true();
     // No casting
     compare("1", 1).should.be.false();
   });
 
-  it("null & undefined", () => {
+  it("null & undefined", function () {
     // Same values
     compare(undefined, undefined).should.be.true();
     compare(null, null).should.be.true();

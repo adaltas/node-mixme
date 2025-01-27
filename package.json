@@ -7,29 +7,27 @@
     "Paul Farault <paul.farault@gmail.com>"
   ],
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.3",
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@eslint/js": "^9.8.0",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@types/mocha": "^10.0.7",
-    "@types/node": "^22.0.0",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.19.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.10",
     "coffeescript": "^2.7.0",
-    "eslint": "^9.8.0",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-mocha": "^10.5.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "husky": "^9.1.4",
-    "lint-staged": "^15.2.7",
-    "mocha": "^10.7.0",
-    "pinst": "^3.0.0",
-    "prettier": "^3.3.3",
-    "rollup": "^4.19.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "mocha": "^11.1.0",
+    "prettier": "^3.4.2",
     "should": "^13.2.3",
     "standard-version": "^9.5.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "tsup": "^8.3.6",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.22.0"
   },
   "engines": {
     "node": ">= 8.0.0"
@@ -40,14 +38,9 @@
   },
   "exports": {
     ".": {
-      "import": {
-        "types": "./lib/index.d.ts",
-        "default": "./lib/index.js"
-      },
-      "require": {
-        "types": "./dist/cjs/index.d.cts",
-        "default": "./dist/cjs/index.cjs"
-      }
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs"
     }
   },
   "keywords": [
@@ -60,8 +53,7 @@
     "recursive"
   ],
   "files": [
-    "dist",
-    "lib"
+    "dist"
   ],
   "license": "MIT",
   "lint-staged": {
@@ -71,8 +63,8 @@
   "main": "./dist/cjs/index.cjs",
   "module": "dist/esm/index.js",
   "mocha": {
+    "import": "tsx",
     "inline-diffs": true,
-    "loader": "ts-node/esm",
     "recursive": true,
     "reporter": "spec",
     "require": [
@@ -86,11 +78,7 @@
     "url": "https://github.com/adaltas/node-mixme.git"
   },
   "scripts": {
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable",
-    "build": "npm run build:rollup && npm run build:ts",
-    "build:rollup": "rollup -c",
-    "build:ts": "cp lib/index.d.ts dist/cjs/index.d.cts && cp lib/*.ts dist/esm",
+    "build": "tsup-node",
     "lint:check": "eslint",
     "lint:fix": "eslint --fix",
     "lint:staged": "npx lint-staged",
@@ -110,6 +98,5 @@
         "dist/esm/index.d.ts"
       ]
     }
-  },
-  "dependencies": {}
+  }
 }

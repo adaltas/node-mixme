@@ -1,8 +1,8 @@
 import "should";
-import { clone } from "../lib/index.js";
+import { clone } from "../src/index.js";
 
-describe("clone", () => {
-  it("array", () => {
+describe("clone", function () {
+  it("array", function () {
     const source = ["a", { b: "c" }, 10, null, ["d", { e: "f" }]];
     const result = clone(source);
     result.should.eql(source);
@@ -12,7 +12,7 @@ describe("clone", () => {
     result.should.eql(["a", { b: "c" }, 10, null, ["d", { e: "f" }]]);
   });
 
-  it("object", () => {
+  it("object", function () {
     const source = { a: "b", c: "d" } as { a: string | null; c: string | null };
     const result = clone(source);
     result.should.eql(source);
@@ -21,7 +21,7 @@ describe("clone", () => {
     result.should.eql({ a: "b", c: "d" });
   });
 
-  it("accept all types", () => {
+  it("accept all types", function () {
     clone(null);
     clone(true).should.eql(true);
     clone(1).should.eql(1);
