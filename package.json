@@ -58,7 +58,7 @@
   "license": "MIT",
   "lint-staged": {
     "*.js": "npm run lint:check",
-    "*.md": "prettier --list-different"
+    "*.md": "prettier -w"
   },
   "main": "./dist/cjs/index.cjs",
   "module": "dist/esm/index.js",
