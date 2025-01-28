@@ -59,7 +59,7 @@ type SnakeCaseKeys<T> =
         }
       : T;
 
-export function camelize<T extends Record<string, unknow>>(
+export function camelize<T extends Record<string, unknown>>(
   source: T,
   depth: boolean | number = true,
 ): SnakeCaseKeys<T> {
@@ -69,7 +69,11 @@ export function camelize<T extends Record<string, unknow>>(
     for (const key of Object.keys(source)) {
       const value = source[key];
       const camelizedKey = depth ? camelize_str(key) : key;
-      target[camelizedKey] = camelize(value, d);
+      if (is_object(value)) {
+        target[camelizedKey] = camelize(value, d);
+      } else {
+        target[camelizedKey] = value;
+      }
     }
   } else {
     return source as SnakeCaseKeys<T>;
@@ -166,7 +170,7 @@ export function mutate<T extends object[]>(
   return target as Merge<T>;
 }
 
-export function snake_case<T extends Record<string, unknow>>(
+export function snake_case<T extends Record<string, unknown>>(
   source: T,
   depth: boolean | number = true,
 ): SnakeCaseKeys<T> {
@@ -176,7 +180,11 @@ export function snake_case<T extends Record<string, unknow>>(
     for (const key of Object.keys(source)) {
       const value = source[key];
       const snakeKey = depth ? snake_case_str(key) : key;
-      target[snakeKey] = snake_case(value, d);
+      if (is_object(value)) {
+        target[snakeKey] = snake_case(value, d);
+      } else {
+        target[snakeKey] = value;
+      }
     }
   } else {
     return source as SnakeCaseKeys<T>;
