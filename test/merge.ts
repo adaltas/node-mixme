@@ -1,5 +1,6 @@
-import should from "should";
-import { merge } from "../src/index.js";
+import { should } from "chai";
+import { merge } from "../src";
+should();
 
 describe("mixme.merge", function () {
   it("does not alter arguments", function () {
@@ -24,7 +25,7 @@ describe("mixme.merge", function () {
   it("dont merge proto", function () {
     merge({}, JSON.parse('{"__proto__": {"polluted": "ohno"}}'));
     const obj = Object.create({});
-    should(obj.polluted).be.Undefined();
+    should().not.exist(obj.polluted);
   });
 
   it("generic interface matching", function () {

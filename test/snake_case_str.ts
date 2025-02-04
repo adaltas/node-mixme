@@ -1,5 +1,6 @@
-import "should";
-import { snake_case_str } from "../src/index.js";
+import { should } from "chai";
+import { snake_case_str } from "../src";
+should();
 
 describe("snake_case_str", function () {
   it("all lowercase", function () {

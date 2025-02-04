@@ -1,5 +1,6 @@
-import "should";
-import { camelize } from "../src/index.js";
+import { should } from "chai";
+import { camelize } from "../src";
+should();
 
 describe("camelize", function () {
   it("boolean true", function () {

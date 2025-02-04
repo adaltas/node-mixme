@@ -10,9 +10,11 @@
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@eslint/js": "^9.19.0",
+    "@types/chai": "^5.0.1",
     "@types/eslint__js": "^8.42.3",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.10.10",
+    "chai": "^5.1.2",
     "coffeescript": "^2.7.0",
     "eslint": "^9.19.0",
     "eslint-config-prettier": "^10.0.1",
@@ -22,7 +24,6 @@
     "lint-staged": "^15.4.3",
     "mocha": "^11.1.0",
     "prettier": "^3.4.2",
-    "should": "^13.2.3",
     "standard-version": "^9.5.0",
     "tsup": "^8.3.6",
     "tsx": "^4.19.2",
@@ -67,9 +68,6 @@
     "inline-diffs": true,
     "recursive": true,
     "reporter": "spec",
-    "require": [
-      "should"
-    ],
     "throw-deprecation": true,
     "timeout": 40000
   },

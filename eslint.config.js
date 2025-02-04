@@ -15,4 +15,10 @@ export default [
   ...ts.configs.recommended,
   mocha.configs.flat.recommended,
   prettier,
+  {
+    files: ["test/**/*.{js,ts}"],
+    rules: {
+      "@typescript-eslint/no-unused-expressions": "off",
+    },
+  },
 ];

@@ -1,5 +1,6 @@
-import "should";
-import { clone } from "../src/index.js";
+import { should } from "chai";
+import { clone } from "../src";
+should();
 
 describe("clone", function () {
   it("array", function () {

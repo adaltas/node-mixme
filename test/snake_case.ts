@@ -1,5 +1,6 @@
-import "should";
-import { snake_case } from "../src/index.js";
+import { should } from "chai";
+import { snake_case } from "../src";
+should();
 
 describe("snake_case", function () {
   it("boolean true", function () {

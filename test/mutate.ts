@@ -1,5 +1,6 @@
-import should from "should";
-import { mutate } from "../src/index.js";
+import { should } from "chai";
+import { mutate } from "../src";
+should();
 
 describe("mutate", function () {
   describe("mutation", function () {
@@ -24,7 +25,7 @@ describe("mutate", function () {
       obj1.c = { d: "d value", f: "f value" };
       const obj2 = { b: "b new", c: { d: "d new" } };
       mutate(obj1, obj2);
-      should.not.exists(Object.getPrototypeOf(obj1));
+      should().not.exist(Object.getPrototypeOf(obj1));
       ({ ...obj1 }).should.eql({
         a: "a value",
         b: "b new",
@@ -36,7 +37,7 @@ describe("mutate", function () {
       const src = {};
       mutate(src, JSON.parse('{"__proto__": {"polluted": "ohno"}}'));
       const obj = Object.create({});
-      should.not.exists(obj.polluted);
+      should().not.exist(obj.polluted);
     });
   });
 

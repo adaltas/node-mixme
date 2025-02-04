@@ -1,5 +1,6 @@
-import "should";
-import { camelize_str } from "../src/index.js";
+import { should } from "chai";
+import { camelize_str } from "../src";
+should();
 
 describe("camelize_str", function () {
   it("all lowercase", function () {

@@ -1,5 +1,6 @@
-import should from "should";
-import { mutate } from "../src/index.js";
+import { should } from "chai";
+import { mutate } from "../src";
+should();
 
 describe("mutate(js)", function () {
   describe("1st arg not object", function () {
@@ -27,7 +28,7 @@ describe("mutate(js)", function () {
     it("object with null", function () {
       const obj1 = { a_key: "a value", b_key: "b value" };
       const obj2 = null;
-      should.not.exists(mutate(obj1, obj2));
+      should().not.exist(mutate(obj1, obj2));
     });
   });
 });
